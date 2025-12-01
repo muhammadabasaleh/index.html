@@ -57,7 +57,13 @@
   </style>
 </head>
 <body>
-  <header>Freestyle Polo in Gilgit Baltistan</header>
+  <header>Freestyle Polo in Gilgit Baltistan</header><main>
+    <h1>Freestyle Polo in Gilgit-Baltistan</h1>
+    <p>Welcome to the home of one of the world's most exciting and historical sports! Polo in Gilgit-Baltistan is played in a unique, fast-paced, and rugged style, earning it the title of "Freestyle Polo" or the "Game of Kings."</p>
+    <h2>History and Tradition</h2>
+    <p>This version of polo has been played in the mountain valleys for centuries. Unlike the modern, regulated game, Freestyle Polo has fewer rules, larger teams, and a passionate, high-energy atmosphere.</p>
+    <a href="https://en.wikipedia.org/wiki/Polo_in_Gilgit-Baltistan" target="_blank">Read more about the history on Wikipedia</a>
+</main>
   <div class="container">
     <h2>Teams</h2>
     <div id="teamList"></div>
