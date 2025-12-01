@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Freestyle Polo in Gilgit Baltistan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    header {
+      background: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .team {
+      background: #eee;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    .add-box {
+      margin-top: 20px;
+      padding: 15px;
+      background: #ddd;
+      border-radius: 8px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>Freestyle Polo in Gilgit Baltistan</header>
+  <div class="container">
+    <h2>Teams</h2>
+    <div id="teamList"></div>
+
+    <div class="add-box">
+      <h3>Add a New Team</h3>
+      <input type="text" id="teamName" placeholder="Team Name" />
+      <textarea id="teamDetails" rows="3" placeholder="Team Details"></textarea>
+      <button onclick="addTeam()">Add Team</button>
+    </div>
+
+    <p style="margin-top:30px; font-size:14px; text-align:center;">Website created by <strong>Muhammad Aba Saleh</strong></p>
+  </div>
+
+  <script>
+    function loadTeams() {
+      let teams = JSON.parse(localStorage.getItem("teams")) || [];
+      let list = document.getElementById("teamList");
+      list.innerHTML = "";
+      teams.forEach((t, i) => {
+        list.innerHTML += `
+          <div class="team">
+            <h3>${t.name}</h3>
+            <p>${t.details}</p>
+          </div>`;
+      });
+    }
+
+    function addTeam() {
+      let name = document.getElementById("teamName").value.trim();
+      let details = document.getElementById("teamDetails").value.trim();
+      if(!name || !details){ alert("Please fill both fields"); return; }
+
+      let teams = JSON.parse(localStorage.getItem("teams")) || [];
+      teams.push({name, details});
+      localStorage.setItem("teams", JSON.stringify(teams));
+
+      document.getElementById("teamName").value = "";
+      document.getElementById("teamDetails").value = "";
+      loadTeams();
+    }
+
+    loadTeams();
+  </script>
+</body>
+</html>
